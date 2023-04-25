@@ -2,7 +2,7 @@
 function maior_subsequencia_magica(string $s): int {
     $vogais = ['a', 'e', 'i', 'o', 'u'];
     $n = strlen($s);
-    $dp = 1;
+    $dp = 0;
     $vogal = 0;
     for ($i = 0; $i < $n; $i++) {
         if (in_array($s[$i], $vogais)) {
@@ -17,9 +17,8 @@ function maior_subsequencia_magica(string $s): int {
     // Adiciona a última subsequência mágica, se existir
     if ($vogal > 0) {
         $dp -= $vogal;
-        return 0;
     }
-    return $dp -1;
+    return $dp;
 }
 // Caso de teste 01
 $s = "aeiaaioooaauuaeiou";
